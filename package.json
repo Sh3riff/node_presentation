@@ -1,0 +1,73 @@
+{
+  "name": "kwimart",
+  "version": "0.0.1",
+  "description": "kwimart http server",
+  "main": "server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon -L --files ts/server.ts",
+    "postinstall": "rimraf src/ && tsc",
+    "lint": "eslint \"./ts/**/*.{js,ts,json}\" --quiet --fix",
+    "test": "jest --coverage --detectOpenHandles",
+    "rimraf": "./node_modules/rimraf/bin.js"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.44.0",
+    "@aws-sdk/client-ses": "^3.40.0",
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "dayjs": "^1.10.5",
+    "express": "^4.17.1",
+    "helmet": "^4.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.13",
+    "nanoid": "^3.1.25",
+    "swagger-ui-express": "^4.1.6",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.10",
+    "@types/express": "^4.17.12",
+    "@types/jsonwebtoken": "^8.5.5",
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^15.12.2",
+    "@types/nodemon": "^1.19.0",
+    "@types/yamljs": "^0.2.31",
+    "@typescript-eslint/eslint-plugin": "^4.26.1",
+    "@typescript-eslint/parser": "^4.26.1",
+    "dotenv": "^10.0.0",
+    "eslint": "^7.28.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "husky": "^4.3.8",
+    "lint-staged": "^11.0.0",
+    "nodemon": "^2.0.7",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.2"
+  },
+  "lint-staged": {
+    "ts/**/*.{js,ts}": [
+      "eslint --fix"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kwimart/Server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kwimart/Server/issues"
+  },
+  "homepage": "https://github.com/Kwimart/Server#readme"
+}
